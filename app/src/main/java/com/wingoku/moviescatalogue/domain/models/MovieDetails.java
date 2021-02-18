@@ -1,45 +1,43 @@
-package com.wingoku.moviescatalogue.data.network.models;
+package com.wingoku.moviescatalogue.domain.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
-public class DetailsDTO implements Parcelable {
-
-    @SerializedName("movie_id")
-    @Expose
+@Entity(tableName = "movie_details", indices = {@Index(value = {"movieId"},
+        unique = true)})
+public class MovieDetails implements Parcelable {
+    @PrimaryKey
     private int movieId;
-    @SerializedName("title")
-    @Expose
     private String title;
-    @SerializedName("sub_title")
-    @Expose
     private String subTitle;
-    public final static Parcelable.Creator<DetailsDTO> CREATOR = new Creator<DetailsDTO>() {
+
+    public final static Creator<MovieDetails> CREATOR = new Creator<MovieDetails>() {
         @SuppressWarnings({
                 "unchecked"
         })
-        public DetailsDTO createFromParcel(Parcel in) {
-            return new DetailsDTO(in);
+        public MovieDetails createFromParcel(Parcel in) {
+            return new MovieDetails(in);
         }
 
-        public DetailsDTO[] newArray(int size) {
-            return (new DetailsDTO[size]);
+        public MovieDetails[] newArray(int size) {
+            return (new MovieDetails[size]);
         }
     };
 
-    protected DetailsDTO(Parcel in) {
+    protected MovieDetails(Parcel in) {
         this.movieId = ((int) in.readValue((int.class.getClassLoader())));
         this.title = ((String) in.readValue((String.class.getClassLoader())));
         this.subTitle = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-    public DetailsDTO() {
+    public MovieDetails() {
     }
 
-    public DetailsDTO(int movieId, String title, String subTitle) {
+    public MovieDetails(int movieId, String title, String subTitle) {
         this.movieId = movieId;
         this.title = title;
         this.subTitle = subTitle;

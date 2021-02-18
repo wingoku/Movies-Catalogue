@@ -1,53 +1,60 @@
-package com.wingoku.moviescatalogue.data.network.models;
+package com.wingoku.moviescatalogue.domain.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
-public class MovieOfferDTO implements Parcelable {
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
-    @SerializedName("price")
-    @Expose
-    private String price;
-    @SerializedName("image")
-    @Expose
-    private String image;
-    @SerializedName("available")
-    @Expose
-    private boolean available;
-    @SerializedName("movie_id")
-    @Expose
+@Entity(tableName = "movie_offer", indices = {@Index(value = {"movieId"},
+        unique = true)})
+public class MovieOffer implements Parcelable {
+    @PrimaryKey
     private int movieId;
-    public final static Parcelable.Creator<MovieOfferDTO> CREATOR = new Creator<MovieOfferDTO>() {
+    private String price;
+    private String image;
+    private boolean available;
+    private String imageBase;
+
+    public final static Creator<MovieOffer> CREATOR = new Creator<MovieOffer>() {
         @SuppressWarnings({
                 "unchecked"
         })
-        public MovieOfferDTO createFromParcel(Parcel in) {
-            return new MovieOfferDTO(in);
+        public MovieOffer createFromParcel(Parcel in) {
+            return new MovieOffer(in);
         }
 
-        public MovieOfferDTO[] newArray(int size) {
-            return (new MovieOfferDTO[size]);
+        public MovieOffer[] newArray(int size) {
+            return (new MovieOffer[size]);
         }
     };
 
-    protected MovieOfferDTO(Parcel in) {
+    protected MovieOffer(Parcel in) {
         this.price = ((String) in.readValue((String.class.getClassLoader())));
         this.image = ((String) in.readValue((String.class.getClassLoader())));
+        this.imageBase = ((String) in.readValue((String.class.getClassLoader())));
         this.available = ((boolean) in.readValue((boolean.class.getClassLoader())));
         this.movieId = ((int) in.readValue((int.class.getClassLoader())));
     }
 
-    public MovieOfferDTO() {
+    public MovieOffer() {
     }
 
-    public MovieOfferDTO(int movieId, String price, String image, boolean available) {
+    public MovieOffer(int movieId, String price, String image, boolean available, String imageBase) {
         this.movieId = movieId;
         this.price = price;
         this.image = image;
         this.available = available;
+        this.imageBase = imageBase;
+    }
+
+    public String getImageBase() {
+        return imageBase;
+    }
+
+    public void setImageBase(String imageBase) {
+        this.imageBase = imageBase;
     }
 
     public String getPrice() {
@@ -87,6 +94,7 @@ public class MovieOfferDTO implements Parcelable {
         dest.writeValue(image);
         dest.writeValue(available);
         dest.writeValue(movieId);
+        dest.writeValue(imageBase);
     }
 
     public int describeContents() {

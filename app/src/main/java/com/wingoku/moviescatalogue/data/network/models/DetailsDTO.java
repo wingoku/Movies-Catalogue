@@ -39,6 +39,12 @@ public class DetailsDTO implements Parcelable {
     public DetailsDTO() {
     }
 
+    public DetailsDTO(int movieId, String title, String subTitle) {
+        this.movieId = movieId;
+        this.title = title;
+        this.subTitle = subTitle;
+    }
+
     public int getMovieId() {
         return movieId;
     }

@@ -43,6 +43,13 @@ public class MovieOfferDTO implements Parcelable {
     public MovieOfferDTO() {
     }
 
+    public MovieOfferDTO(int movieId, String price, String image, boolean available) {
+        this.movieId = movieId;
+        this.price = price;
+        this.image = image;
+        this.available = available;
+    }
+
     public String getPrice() {
         return price;
     }

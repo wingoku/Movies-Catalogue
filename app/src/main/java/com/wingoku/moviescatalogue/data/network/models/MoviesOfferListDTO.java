@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MoviesListDTO implements Parcelable {
+public class MoviesOfferListDTO implements Parcelable {
 
     @SerializedName("image_base")
     @Expose
@@ -14,25 +14,25 @@ public class MoviesListDTO implements Parcelable {
     @SerializedName("movie_offers")
     @Expose
     private List<MovieOfferDTO> movieOffers = null;
-    public final static Parcelable.Creator<MoviesListDTO> CREATOR = new Creator<MoviesListDTO>() {
+    public final static Parcelable.Creator<MoviesOfferListDTO> CREATOR = new Creator<MoviesOfferListDTO>() {
         @SuppressWarnings({
                 "unchecked"
         })
-        public MoviesListDTO createFromParcel(Parcel in) {
-            return new MoviesListDTO(in);
+        public MoviesOfferListDTO createFromParcel(Parcel in) {
+            return new MoviesOfferListDTO(in);
         }
 
-        public MoviesListDTO[] newArray(int size) {
-            return (new MoviesListDTO[size]);
+        public MoviesOfferListDTO[] newArray(int size) {
+            return (new MoviesOfferListDTO[size]);
         }
     };
 
-    protected MoviesListDTO(Parcel in) {
+    protected MoviesOfferListDTO(Parcel in) {
         this.imageBase = ((String) in.readValue((String.class.getClassLoader())));
         in.readList(this.movieOffers, (MovieOfferDTO.class.getClassLoader()));
     }
 
-    public MoviesListDTO() {
+    public MoviesOfferListDTO() {
     }
 
     public String getImageBase() {

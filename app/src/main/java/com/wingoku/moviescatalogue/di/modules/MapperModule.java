@@ -3,12 +3,11 @@ package com.wingoku.moviescatalogue.di.modules;
 import com.wingoku.moviescatalogue.domain.mappers.MovieDetailsDomainMapper;
 import com.wingoku.moviescatalogue.domain.mappers.MovieOffersDomainMapper;
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.components.ViewModelComponent;
+import me.eugeniomarletti.kotlin.metadata.shadow.javax.inject.Singleton;
 
 @Module
 @InstallIn(ViewModelComponent.class)

@@ -14,7 +14,10 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.hilt.InstallIn;
+import dagger.hilt.android.components.ViewModelComponent;
 import dagger.hilt.android.qualifiers.ApplicationContext;
+import dagger.hilt.components.SingletonComponent;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
@@ -27,6 +30,7 @@ import static com.wingoku.moviescatalogue.utils.Constants.CONNECTION_TIME_OUT;
 import static com.wingoku.moviescatalogue.utils.Constants.REQUEST_RETRIES;
 
 @Module
+@InstallIn(SingletonComponent.class)
 public class OKHttpModule {
     @Provides
     @Singleton

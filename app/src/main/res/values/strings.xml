@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MoviesCatalogue</string>
+
+    <string name="ok_string">OK</string>
 </resources>

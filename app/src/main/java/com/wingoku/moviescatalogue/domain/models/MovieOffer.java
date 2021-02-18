@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -30,6 +31,7 @@ public class MovieOffer implements Parcelable {
         }
     };
 
+    @Ignore
     protected MovieOffer(Parcel in) {
         this.price = ((String) in.readValue((String.class.getClassLoader())));
         this.image = ((String) in.readValue((String.class.getClassLoader())));
@@ -38,6 +40,7 @@ public class MovieOffer implements Parcelable {
         this.movieId = ((int) in.readValue((int.class.getClassLoader())));
     }
 
+    @Ignore
     public MovieOffer() {
     }
 

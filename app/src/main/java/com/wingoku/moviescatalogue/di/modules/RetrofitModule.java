@@ -1,18 +1,14 @@
 package com.wingoku.moviescatalogue.di.modules;
 
-import android.util.Log;
-
 import com.wingoku.moviescatalogue.BuildConfig;
 import com.wingoku.moviescatalogue.data.network.adapters.LiveDataAdapterFactory;
 import com.wingoku.moviescatalogue.data.network.interfaces.MoviesApi;
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
-import dagger.hilt.android.components.ViewModelComponent;
 import dagger.hilt.components.SingletonComponent;
+import me.eugeniomarletti.kotlin.metadata.shadow.javax.inject.Singleton;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -30,7 +26,6 @@ public class RetrofitModule {
     @Provides
     @Singleton
     public Retrofit providesRetrofit(OkHttpClient okHttpClient, GsonConverterFactory gsonConverterFactory, LiveDataAdapterFactory liveDataAdapterFactory) {
-
         return new Retrofit.Builder()
                 .client(okHttpClient)
                 .addCallAdapterFactory(liveDataAdapterFactory)

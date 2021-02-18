@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DetailsDTO implements Parcelable {
+public class MovieDetailsDTO implements Parcelable {
 
     @SerializedName("movie_id")
     @Expose
@@ -17,29 +17,29 @@ public class DetailsDTO implements Parcelable {
     @SerializedName("sub_title")
     @Expose
     private String subTitle;
-    public final static Parcelable.Creator<DetailsDTO> CREATOR = new Creator<DetailsDTO>() {
+    public final static Parcelable.Creator<MovieDetailsDTO> CREATOR = new Creator<MovieDetailsDTO>() {
         @SuppressWarnings({
                 "unchecked"
         })
-        public DetailsDTO createFromParcel(Parcel in) {
-            return new DetailsDTO(in);
+        public MovieDetailsDTO createFromParcel(Parcel in) {
+            return new MovieDetailsDTO(in);
         }
 
-        public DetailsDTO[] newArray(int size) {
-            return (new DetailsDTO[size]);
+        public MovieDetailsDTO[] newArray(int size) {
+            return (new MovieDetailsDTO[size]);
         }
     };
 
-    protected DetailsDTO(Parcel in) {
+    protected MovieDetailsDTO(Parcel in) {
         this.movieId = ((int) in.readValue((int.class.getClassLoader())));
         this.title = ((String) in.readValue((String.class.getClassLoader())));
         this.subTitle = ((String) in.readValue((String.class.getClassLoader())));
     }
 
-    public DetailsDTO() {
+    public MovieDetailsDTO() {
     }
 
-    public DetailsDTO(int movieId, String title, String subTitle) {
+    public MovieDetailsDTO(int movieId, String title, String subTitle) {
         this.movieId = movieId;
         this.title = title;
         this.subTitle = subTitle;

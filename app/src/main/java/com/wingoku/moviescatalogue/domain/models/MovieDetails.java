@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -28,12 +29,14 @@ public class MovieDetails implements Parcelable {
         }
     };
 
+    @Ignore
     protected MovieDetails(Parcel in) {
         this.movieId = ((int) in.readValue((int.class.getClassLoader())));
         this.title = ((String) in.readValue((String.class.getClassLoader())));
         this.subTitle = ((String) in.readValue((String.class.getClassLoader())));
     }
 
+    @Ignore
     public MovieDetails() {
     }
 

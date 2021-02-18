@@ -10,11 +10,15 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import dagger.hilt.InstallIn;
+import dagger.hilt.android.components.ViewModelComponent;
+import dagger.hilt.components.SingletonComponent;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module(includes = {OKHttpModule.class})
+@InstallIn(SingletonComponent.class)
 public class RetrofitModule {
 
     @Provides

@@ -30,7 +30,6 @@ public class MoviesRepoImpl implements MoviesRepo {
     private MovieDetailsDomainMapper movieDetailsDomainMapper;
     private MovieOffersDomainMapper movieOffersDomainMapper;
 
-    @Inject
     public MoviesRepoImpl(MoviesApi moviesApi, MoviesDao moviesDao, MovieDetailsDomainMapper movieDetailsDomainMapper, MovieOffersDomainMapper movieOffersDomainMapper) {
         this.moviesApi = moviesApi;
         this.moviesDao = moviesDao;

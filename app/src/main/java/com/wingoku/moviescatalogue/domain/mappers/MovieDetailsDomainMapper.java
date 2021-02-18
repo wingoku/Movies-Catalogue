@@ -1,26 +1,25 @@
 package com.wingoku.moviescatalogue.domain.mappers;
 
-import com.wingoku.moviescatalogue.data.network.models.DetailsDTO;
-import com.wingoku.moviescatalogue.data.network.models.MoviesDetailsDTO;
+import com.wingoku.moviescatalogue.data.network.models.MovieDetailsDTO;
 import com.wingoku.moviescatalogue.domain.mappers.interfaces.DomainMapper;
 import com.wingoku.moviescatalogue.domain.models.MovieDetails;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieDetailsDomainMapper implements DomainMapper<MovieDetails, DetailsDTO> {
+public class MovieDetailsDomainMapper implements DomainMapper<MovieDetails, MovieDetailsDTO> {
     @Override
-    public MovieDetails fromDTO(DetailsDTO detailsDTO) {
+    public MovieDetails fromDTO(MovieDetailsDTO movieDetailsDTO) {
         return new MovieDetails(
-                detailsDTO.getMovieId(),
-                detailsDTO.getTitle(),
-                detailsDTO.getSubTitle()
+                movieDetailsDTO.getMovieId(),
+                movieDetailsDTO.getTitle(),
+                movieDetailsDTO.getSubTitle()
         );
     }
 
     @Override
-    public DetailsDTO toDTO(MovieDetails movieDetails) {
-        return new DetailsDTO(
+    public MovieDetailsDTO toDTO(MovieDetails movieDetails) {
+        return new MovieDetailsDTO(
                 movieDetails.getMovieId(),
                 movieDetails.getTitle(),
                 movieDetails.getSubTitle()
@@ -28,18 +27,18 @@ public class MovieDetailsDomainMapper implements DomainMapper<MovieDetails, Deta
     }
 
     @Override
-    public List<MovieDetails> fromDTO(List<DetailsDTO> detailsDTOS) {
+    public List<MovieDetails> fromDTO(List<MovieDetailsDTO> movieDetailsDTOS) {
         List<MovieDetails> list = new ArrayList<>();
 
-        for (DetailsDTO dto : detailsDTOS) {
+        for (MovieDetailsDTO dto : movieDetailsDTOS) {
             list.add(fromDTO(dto));
         }
         return list;
     }
 
     @Override
-    public List<DetailsDTO> toDTO(List<MovieDetails> movieDetails) {
-        List<DetailsDTO> list = new ArrayList<>();
+    public List<MovieDetailsDTO> toDTO(List<MovieDetails> movieDetails) {
+        List<MovieDetailsDTO> list = new ArrayList<>();
 
         for (MovieDetails dto : movieDetails) {
             list.add(toDTO(dto));

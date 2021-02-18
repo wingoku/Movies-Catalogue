@@ -10,14 +10,13 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
-import dagger.hilt.android.components.ViewModelComponent;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
+import me.eugeniomarletti.kotlin.metadata.shadow.javax.inject.Singleton;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
@@ -34,8 +33,10 @@ import static com.wingoku.moviescatalogue.utils.Constants.REQUEST_RETRIES;
 public class OKHttpModule {
     @Provides
     @Singleton
-    public OkHttpClient providesOkHttpClient(@ApplicationContext Context context, OkHttpClient.Builder builder, HttpLoggingInterceptor okhttpLoggingInterceptor, Cache cache, @Named("RewriteResponseInterceptor") Interceptor rewriteResponseInterceptor, @Named("RewriteResponseOfflineInterceptor") Interceptor rewriteResponseOfflineInterceptor, @Named("RetryInterceptor") Interceptor retriesInterceptor) {
-
+    public OkHttpClient providesOkHttpClient(@ApplicationContext Context context, OkHttpClient.Builder builder, HttpLoggingInterceptor okhttpLoggingInterceptor,
+                                             Cache cache, @Named("RewriteResponseInterceptor") Interceptor rewriteResponseInterceptor,
+                                             @Named("RewriteResponseOfflineInterceptor") Interceptor rewriteResponseOfflineInterceptor,
+                                             @Named("RetryInterceptor") Interceptor retriesInterceptor) {
         builder.cache(cache);
         builder.addInterceptor(retriesInterceptor);
         builder.addInterceptor(rewriteResponseInterceptor);

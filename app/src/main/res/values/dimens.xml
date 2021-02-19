@@ -2,4 +2,14 @@
 <resources>
 
     <dimen name="splash_screen_text_size">20sp</dimen>
+    <dimen name="card_margin">9dp</dimen>
+    <dimen name="card_view_radius">3dp</dimen>
+    <dimen name="card_view_elevation">3dp</dimen>
+    <dimen name="card_view_padding">6dp</dimen>
+    <dimen name="card_view_image_dimen">50dp</dimen>
+    <dimen name="expanded_title_padding">10dp</dimen>
+    <dimen name="card_view_title_text_view_dimen">15sp</dimen>
+    <dimen name="card_view_detail_margin_start_dimen">10dp</dimen>
+    <dimen name="card_view_detail_text_view_margin_top_dimen">4dp</dimen>
+    <dimen name="card_view_detail_text_view_dimen">12sp</dimen>
 </resources>

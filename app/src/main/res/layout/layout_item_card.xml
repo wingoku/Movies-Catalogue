@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/card_margin"
+    android:layout_marginTop="@dimen/card_margin"
+    android:layout_marginEnd="@dimen/card_margin"
+    card_view:cardCornerRadius="@dimen/card_view_radius"
+    card_view:cardElevation="@dimen/card_view_elevation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/card_view_padding">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/card_view_image_dimen"
+            android:layout_height="@dimen/card_view_image_dimen"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@id/imageView"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/expanded_title_padding"
+            android:paddingTop="@dimen/expanded_title_padding"
+            android:paddingRight="@dimen/expanded_title_padding"
+            android:textColor="@color/title_text_color"
+            android:textSize="@dimen/card_view_title_text_view_dimen"
+            tool:text="PLACE HOLDER" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginStart="@dimen/card_view_detail_margin_start_dimen"
+            android:layout_marginTop="@dimen/card_view_detail_text_view_margin_top_dimen"
+            android:layout_toEndOf="@+id/imageView"
+            android:textSize="@dimen/card_view_detail_text_view_dimen"
+            tool:text="PLACE HOLDER DESCRIPTION" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

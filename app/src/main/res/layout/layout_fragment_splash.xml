@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#546e7a"
+    tools:context=".presentation.activities.MainActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/view_splash_anim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_fileName="sword_anim.json"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/splash_screen_string"
+        android:textColor="@color/color_splash_text"
+        android:gravity="center"
+        android:textSize="@dimen/splash_screen_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/view_splash_anim"
+        app:layout_constraintTop_toTopOf="@+id/view_splash_anim"
+        app:layout_constraintVertical_bias="0.79"
+        tools:layout_editor_absoluteX="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

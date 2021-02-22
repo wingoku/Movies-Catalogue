@@ -1,7 +1,6 @@
 package com.wingoku.moviescatalogue.presentation.fragments;
 
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +8,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -20,17 +17,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wingoku.moviescatalogue.R;
 import com.wingoku.moviescatalogue.data.network.utils.Resource;
-import com.wingoku.moviescatalogue.domain.models.MovieDetails;
-import com.wingoku.moviescatalogue.domain.models.MovieDetails;
 import com.wingoku.moviescatalogue.domain.models.MovieItemDetails;
-import com.wingoku.moviescatalogue.domain.models.MovieOffer;
 import com.wingoku.moviescatalogue.domain.viewModels.MovieListViewModel;
 import com.wingoku.moviescatalogue.domain.viewModels.SharedViewModel;
 import com.wingoku.moviescatalogue.presentation.activities.MainActivity;
 import com.wingoku.moviescatalogue.presentation.adapters.recyclerView.MoviesListAdapter;
 import com.wingoku.moviescatalogue.presentation.interfaces.OnItemClickListener;
 
-import java.util.HashMap;
 import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -60,7 +53,7 @@ public class MoviesListFragment extends BaseFragment {
         SharedViewModel sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         MovieListViewModel movieListViewModel = new ViewModelProvider(requireActivity()).get(MovieListViewModel.class);
 
-        movieListViewModel.observeMovieDetailsSource(sharedViewModel.getCategoryData());
+        movieListViewModel.observeMovieDetailsSource(sharedViewModel.getMoviesListData());
         movieListViewModel.getMovieItemsDetails().observe(getViewLifecycleOwner(), new Observer<Resource<List<MovieItemDetails>>>() {
             @Override
             public void onChanged(Resource<List<MovieItemDetails>> listResource) {

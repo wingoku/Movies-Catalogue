@@ -61,19 +61,19 @@ public class SplashScreenFragment extends Fragment {
         ((MainActivity)requireActivity()).hideToolbar();
 
         sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-        sharedViewModel.returnLiveData().observe(getViewLifecycleOwner(), new Observer<Resource<List<MovieDetails>>>() {
+        sharedViewModel.fetchMoviesListData().observe(getViewLifecycleOwner(), new Observer<Resource<List<MovieDetails>>>() {
             @Override
             public void onChanged(Resource<List<MovieDetails>> listResource) {
                 //cuz we don't want to navigate to the next fragment when Resource.class status is LOADING/
                 if(listResource.status != Resource.Status.LOADING) {
-                    sharedViewModel.setCategoryData(listResource);
-                    navigateToCategoryFragment();
+                    sharedViewModel.setMoviesListData(listResource);
+                    navigateToMovieListFragment();
                 }
             }
         });
     }
 
-    private void navigateToCategoryFragment() {
+    private void navigateToMovieListFragment() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

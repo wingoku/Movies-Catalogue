@@ -23,9 +23,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
 public class SharedViewModel extends ViewModel {
-//    @Inject
-    MoviesRepo repo;
-
+    private MoviesRepo repo;
     private MediatorLiveData<Resource<List<MovieDetails>>> movieOffersMediatorLiveData = new MediatorLiveData<>();
 
     @Inject
@@ -33,15 +31,15 @@ public class SharedViewModel extends ViewModel {
         this.repo = repo;
     }
 
-    public void setCategoryData(Resource<List<MovieDetails>> catData) {
+    public void setMoviesListData(Resource<List<MovieDetails>> catData) {
         movieOffersMediatorLiveData.setValue(catData);
     }
 
-    public LiveData<Resource<List<MovieDetails>>> getCategoryData() {
+    public LiveData<Resource<List<MovieDetails>>> getMoviesListData() {
         return movieOffersMediatorLiveData;
     }
 
-    public LiveData<Resource<List<MovieDetails>>> returnLiveData() {
+    public LiveData<Resource<List<MovieDetails>>> fetchMoviesListData() {
         return repo.getMoviesDetails(1);
     }
 }

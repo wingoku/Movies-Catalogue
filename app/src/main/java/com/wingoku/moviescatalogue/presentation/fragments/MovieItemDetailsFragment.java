@@ -35,6 +35,7 @@ public class MovieItemDetailsFragment extends Fragment {
         View view = inflater.inflate(R.layout.layout_fragment_item_details, container, false);
         initUI(view);
 
+        //adding collapsing toolbar in navigation ui for showing back button in toolbar and let nav controller handle back button interaction
         NavigationUI.setupWithNavController(toolbar,  NavHostFragment.findNavController(this));
 
         movieItemDetails = (MovieItemDetails) MovieItemDetailsFragmentArgs.fromBundle(requireArguments()).getMovieItemDetails();

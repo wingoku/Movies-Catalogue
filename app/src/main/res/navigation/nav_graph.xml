@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
 
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.wingoku.moviescatalogue.presentation.fragments.SplashScreenFragment">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_moviesListFragment"
+            app:destination="@id/moviesListFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesListFragment"
+        android:name="com.wingoku.moviescatalogue.presentation.fragments.MoviesListFragment"
+        android:label="Movies" >
+        <action
+            android:id="@+id/action_moviesListFragment_to_movieItemDetailsFragment"
+            app:destination="@id/movieItemDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieItemDetailsFragment"
+        android:name="com.wingoku.moviescatalogue.presentation.fragments.MovieItemDetailsFragment"
+        android:label="MovieItemDetailsFragment" >
+        <argument
+            android:name="movieItemDetails"
+            app:argType="com.wingoku.moviescatalogue.domain.models.MovieItemDetails" />
+    </fragment>
 </navigation>

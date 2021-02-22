@@ -21,7 +21,7 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
-        initSnackbar(getActivity().getApplicationContext(), view);
+        initSnackbar(requireActivity().getApplicationContext(), view);
         return view;
     }
 
@@ -32,7 +32,7 @@ public class BaseFragment extends Fragment {
      * @param view View with which {@link Snackbar} will be attached
      */
     protected void initSnackbar(Context con, View view) {
-        snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "", Snackbar.LENGTH_LONG);
+        snackbar = Snackbar.make(requireActivity().findViewById(android.R.id.content), "", Snackbar.LENGTH_LONG);
         snackbar.setAction(con.getString(R.string.ok_string), new View.OnClickListener() {
             @Override
             public void onClick(View v) {

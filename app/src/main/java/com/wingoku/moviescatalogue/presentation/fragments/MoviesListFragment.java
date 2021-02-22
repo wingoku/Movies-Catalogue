@@ -53,6 +53,28 @@ public class MoviesListFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);;
         ((MainActivity)requireActivity()).showToolbar();
+        initSharedViewModel();
+    }
+
+    public void initSharedViewModel() {
+        SharedViewModel sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        MovieListViewModel movieListViewModel = new ViewModelProvider(requireActivity()).get(MovieListViewModel.class);
+
+        movieListViewModel.observeMovieDetailsSource(sharedViewModel.getCategoryData());
+        movieListViewModel.getMovieItemsDetails().observe(getViewLifecycleOwner(), new Observer<Resource<List<MovieItemDetails>>>() {
+            @Override
+            public void onChanged(Resource<List<MovieItemDetails>> listResource) {
+                Log.d(TAG, "onChanged: data source status "+ listResource.status.name());
+                MainActivity activity = ((MainActivity)requireActivity());
+                if(listResource.status == Resource.Status.LOADING) {
+                    activity.showProgressBar();
+                }
+                else {
+                    activity.hideProgressBar();
+                    adapter.submitList(listResource.data);
+                }
+            }
+        });
     }
 
     private void initRecyclerView(View view) {
@@ -60,6 +82,7 @@ public class MoviesListFragment extends BaseFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
+        //passing item click listener to cat adapter cuz it's cleaner and best practice: https://stackoverflow.com/questions/49969278/recyclerview-item-click-listener-the-right-way
         adapter = new MoviesListAdapter(getOnItemClickListener());
         recyclerView.setAdapter(adapter);
     }

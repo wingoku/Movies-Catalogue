@@ -31,6 +31,7 @@ public class MovieItemDetailsFragment extends Fragment {
         View view = inflater.inflate(R.layout.layout_fragment_item_details, container, false);
         initUI(view);
 
+        movieItemDetails = (MovieItemDetails) MovieItemDetailsFragmentArgs.fromBundle(requireArguments()).getMovieItemDetails();
         populateUI(movieItemDetails);
 
         return view;

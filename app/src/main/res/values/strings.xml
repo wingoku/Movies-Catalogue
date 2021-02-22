@@ -3,4 +3,11 @@
 
     <string name="ok_string">OK</string>
     <string name="splash_screen_string">Movies Catalogue</string>
+
+    <string name="placeholder_title">Title</string>
+    <string name="placeholder_name">Name</string>
+    <string name="title_label_string">Title</string>
+    <string name="subtitle_string">Subtitle</string>
+    <string name="price_label_string">Price</string>
+    <string name="available_string">Available</string>
 </resources>

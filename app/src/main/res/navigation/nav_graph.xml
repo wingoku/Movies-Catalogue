@@ -10,7 +10,11 @@
             android:id="@+id/action_splashScreenFragment_to_moviesListFragment"
             app:destination="@id/moviesListFragment"
             app:popUpTo="@id/splashScreenFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/moviesListFragment"

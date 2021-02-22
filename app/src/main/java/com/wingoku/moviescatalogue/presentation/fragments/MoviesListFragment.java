@@ -30,13 +30,14 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class MoviesListFragment extends BaseFragment {
-    private static final String TAG = "MovieOffersFragment";
+    private static final String TAG = "MoviesListFragment";
     private NavController navController;
     private MoviesListAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.layout_recycler_view, container, false);
         initRecyclerView(view);
         return view;
@@ -63,6 +64,9 @@ public class MoviesListFragment extends BaseFragment {
                     activity.showProgressBar();
                 }
                 else {
+                    if(listResource.status == Resource.Status.ERROR) {
+                        showSnackBar(listResource.message);
+                    }
                     activity.hideProgressBar();
                     adapter.submitList(listResource.data);
                 }

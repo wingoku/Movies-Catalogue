@@ -77,6 +77,8 @@ public class SplashScreenFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                Log.d(TAG, "run: calling navigation controller");
+                navController.navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToMoviesListFragment());
             }
         }, SPLASH_SCREEN_DURATION);
     }

@@ -130,11 +130,11 @@ public class MovieListViewModel extends ViewModel {
     private void checkIfAllDataReceived() {
         if(receivedSourceCount >= 2) {
             movieItemDetailsList.addAll(movieItemDetailsMap.values());
-            if(resource1 != null && resource1.status == Resource.Status.SUCCESS && resource2 != null && resource2.status == Resource.Status.SUCCESS) {
-                mediatorLiveData.setValue(Resource.success(movieItemDetailsList));
+            if(resource1 != null && resource1.status == Resource.Status.ERROR || resource2 != null && resource2.status == Resource.Status.ERROR) {
+                mediatorLiveData.setValue(Resource.error("Some data couldn't be fetched", movieItemDetailsList));
             }
             else {
-                mediatorLiveData.setValue(Resource.error("Some data couldn't be fetched", movieItemDetailsList));
+                mediatorLiveData.setValue(Resource.success(movieItemDetailsList));
             }
         }
     }

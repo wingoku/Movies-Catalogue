@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#546e7a"
+    android:background="@color/red_700"
     tools:context=".presentation.activities.MainActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_fileName="sword_anim.json"/>
+        app:lottie_fileName="movie_theater.json"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"

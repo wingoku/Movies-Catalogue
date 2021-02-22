@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.squareup.picasso.Picasso;
@@ -23,6 +24,7 @@ public class MovieItemDetailsFragment extends Fragment {
     private TextView moviePriceTV;
     private TextView movieAvailabilityTV;
     private ImageView movieImageView;
+    private Toolbar toolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,9 +52,11 @@ public class MovieItemDetailsFragment extends Fragment {
         moviePriceTV = view.findViewById(R.id.tv_description2_value);
         movieAvailabilityTV = view.findViewById(R.id.tv_description3_value);
         movieImageView = view.findViewById(R.id.imageView_collapsingToolbar);
+        toolbar = view.findViewById(R.id.toolbar);
     }
 
     private void populateUI(MovieItemDetails movieItemDetails) {
+        toolbar.setTitle(movieItemDetails.getMovieName());
         movieNameTV.setText(movieItemDetails.getMovieName());
         movieDescTV.setText(movieItemDetails.getMovieDescription());
         moviePriceTV.setText(movieItemDetails.getMoviePrice());

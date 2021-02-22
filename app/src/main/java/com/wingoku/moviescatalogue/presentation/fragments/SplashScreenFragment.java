@@ -18,13 +18,18 @@ import androidx.navigation.Navigation;
 import com.airbnb.lottie.LottieAnimationView;
 import com.wingoku.moviescatalogue.R;
 import com.wingoku.moviescatalogue.data.network.utils.Resource;
-import com.wingoku.moviescatalogue.domain.models.MovieOffer;
+import com.wingoku.moviescatalogue.domain.models.MovieDetails;
 import com.wingoku.moviescatalogue.domain.viewModels.SharedViewModel;
 import com.wingoku.moviescatalogue.presentation.activities.MainActivity;
 
 import java.io.IOException;
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+import static com.wingoku.moviescatalogue.utils.Constants.SPLASH_SCREEN_DURATION;
+
+@AndroidEntryPoint
 public class SplashScreenFragment extends Fragment {
     private static final String TAG = "SplashScreenFragment";
 
@@ -56,11 +61,9 @@ public class SplashScreenFragment extends Fragment {
         ((MainActivity)requireActivity()).hideToolbar();
 
         sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-        sharedViewModel.returnLiveData().observe(getViewLifecycleOwner(), new Observer<Resource<List<MovieOffer>>>() {
+        sharedViewModel.returnLiveData().observe(getViewLifecycleOwner(), new Observer<Resource<List<MovieDetails>>>() {
             @Override
-            public void onChanged(Resource<List<MovieOffer>> listResource) {
-
-
+            public void onChanged(Resource<List<MovieDetails>> listResource) {
                 //cuz we don't want to navigate to the next fragment when Resource.class status is LOADING/
                 if(listResource.status != Resource.Status.LOADING) {
                     sharedViewModel.setCategoryData(listResource);
@@ -68,22 +71,19 @@ public class SplashScreenFragment extends Fragment {
                 }
             }
         });
-
     }
 
     private void navigateToCategoryFragment() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Log.d(TAG, "run: calling navigation controller");
-                //todo navigate to another fragment
             }
-        }, 1000);
+        }, SPLASH_SCREEN_DURATION);
     }
 
     private void loadSplashAnimation() throws IOException {
         LottieAnimationView animView = getActivity().findViewById(R.id.view_splash_anim);
-        animView.setAnimation(getActivity().getAssets().open("sword_anim.json"), "");
+        animView.setAnimation(getActivity().getAssets().open("movie_theater.json"), "");
         animView.playAnimation();
     }
 }

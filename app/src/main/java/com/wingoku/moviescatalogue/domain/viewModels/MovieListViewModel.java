@@ -53,4 +53,21 @@ public class MovieListViewModel extends ViewModel {
         return mediatorLiveData;
     }
 
+    private void populateMovieOfferDataInItemDetails(@NonNull List<MovieOffer> movieOffers) {
+        for(MovieOffer movieOffer : movieOffers) {
+            movieItemDetailsMap.putIfAbsent(movieOffer.getMovieId(), new MovieItemDetails());
+            movieItemDetailsMap.get(movieOffer.getMovieId()).setMovieId(movieOffer.getMovieId());
+            movieItemDetailsMap.get(movieOffer.getMovieId()).setMoviePrice(movieOffer.getPrice());
+            movieItemDetailsMap.get(movieOffer.getMovieId()).setImageUrl(movieOffer.getImageBase()+movieOffer.getImage());
+        }
+    }
+
+    private void populateMovieDetailsDataInItemDetails(@NonNull List<MovieDetails> movieDetails) {
+        for(MovieDetails movieDetail : movieDetails) {
+            movieItemDetailsMap.putIfAbsent(movieDetail.getMovieId(), new MovieItemDetails());
+            movieItemDetailsMap.get(movieDetail.getMovieId()).setMovieId(movieDetail.getMovieId());
+            movieItemDetailsMap.get(movieDetail.getMovieId()).setMovieName(movieDetail.getTitle());
+            movieItemDetailsMap.get(movieDetail.getMovieId()).setMovieDescription(movieDetail.getSubTitle());
+        }
+    }
 }

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.squareup.picasso.Picasso;
 import com.wingoku.moviescatalogue.R;
@@ -32,6 +34,8 @@ public class MovieItemDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.layout_fragment_item_details, container, false);
         initUI(view);
+
+        NavigationUI.setupWithNavController(toolbar,  NavHostFragment.findNavController(this));
 
         movieItemDetails = (MovieItemDetails) MovieItemDetailsFragmentArgs.fromBundle(requireArguments()).getMovieItemDetails();
         populateUI(movieItemDetails);

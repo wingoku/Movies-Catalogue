@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_layout_height_dimen"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/imageView_collapsingToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cover_place_holder"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?android:attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_cell_height"
+                android:layout_marginTop="@dimen/detail_list_cell_margin_top">
+
+                <ImageView
+                    android:id="@+id/imageView_1"
+                    android:layout_width="@dimen/detail_image_view_dimen"
+                    android:layout_height="@dimen/detail_image_view_dimen"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_title"
+                    tool:src="@mipmap/ic_title"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/imageView_1"
+                    android:layout_marginLeft="@dimen/margin_left_detail_title_text_view"
+                    android:layout_marginStart="@dimen/margin_left_detail_title_text_view"
+                    android:layout_toEndOf="@+id/imageView_1"
+                    android:layout_toRightOf="@+id/imageView_1"
+                    tool:text="@string/placeholder_title"
+                    android:text="@string/title_label_string"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="@dimen/detail_title_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_title_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_title"
+                    android:layout_alignStart="@+id/tv_title"
+                    android:layout_below="@+id/tv_title"
+                    android:layout_marginTop="4dp"
+                    tool:text="@string/placeholder_name"
+                    android:textSize="@dimen/detail_text_size" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_cell_height"
+                android:layout_marginTop="@dimen/detail_list_cell_margin_top">
+
+                <ImageView
+                    android:id="@+id/imageView_2"
+                    android:layout_width="@dimen/detail_image_view_dimen"
+                    android:layout_height="@dimen/detail_image_view_dimen"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_description"
+                    tool:src="@mipmap/ic_description" />
+
+                <TextView
+                    android:id="@+id/tv_description_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/imageView_2"
+                    android:layout_marginLeft="@dimen/margin_left_detail_title_text_view"
+                    android:layout_marginStart="@dimen/margin_left_detail_title_text_view"
+                    android:layout_toEndOf="@+id/imageView_2"
+                    android:layout_toRightOf="@+id/imageView_2"
+                    tool:text="@string/subtitle_string"
+                    android:text="@string/subtitle_string"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="@dimen/detail_title_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_description_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_description_title"
+                    android:layout_alignStart="@+id/tv_description_title"
+                    android:layout_below="@+id/tv_description_title"
+                    android:layout_marginTop="4dp"
+                    tool:text="@string/placeholder_name"
+                    android:lines="4"
+                    android:maxLines="4"
+                    android:textSize="@dimen/detail_text_size" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_cell_height"
+                android:layout_marginTop="@dimen/detail_list_cell_margin_top">
+
+                <ImageView
+                    android:id="@+id/imageView_3"
+                    android:layout_width="@dimen/detail_image_view_dimen"
+                    android:layout_height="@dimen/detail_image_view_dimen"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_price"
+                    tool:src="@mipmap/ic_price" />
+
+                <TextView
+                    android:id="@+id/tv_description2_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/imageView_3"
+                    android:layout_marginLeft="@dimen/margin_left_detail_title_text_view"
+                    android:layout_marginStart="@dimen/margin_left_detail_title_text_view"
+                    android:layout_toEndOf="@+id/imageView_3"
+                    android:layout_toRightOf="@+id/imageView_3"
+                    tool:text="@string/price_label_string"
+                    android:text="@string/price_label_string"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="@dimen/detail_title_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_description2_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_description2_title"
+                    android:layout_alignStart="@+id/tv_description2_title"
+                    android:layout_below="@+id/tv_description2_title"
+                    android:layout_marginTop="4dp"
+                    tool:text="@string/placeholder_name"
+                    android:textSize="@dimen/detail_text_size" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_cell_height"
+                android:layout_marginTop="@dimen/detail_list_cell_margin_top">
+
+                <ImageView
+                    android:id="@+id/imageView_4"
+                    android:layout_width="@dimen/detail_image_view_dimen"
+                    android:layout_height="@dimen/detail_image_view_dimen"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_availability"
+                    tool:src="@mipmap/ic_availability" />
+
+                <TextView
+                    android:id="@+id/tv_description3_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/imageView_4"
+                    android:layout_marginLeft="@dimen/margin_left_detail_title_text_view"
+                    android:layout_marginStart="@dimen/margin_left_detail_title_text_view"
+                    android:layout_toEndOf="@+id/imageView_4"
+                    android:layout_toRightOf="@+id/imageView_4"
+                    tool:text="@string/available_string"
+                    android:text="@string/available_string"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="@dimen/detail_title_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_description3_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_description3_title"
+                    android:layout_alignStart="@+id/tv_description3_title"
+                    android:layout_below="@+id/tv_description3_title"
+                    android:layout_marginTop="4dp"
+                    tool:text="@string/placeholder_name"
+                    android:textSize="@dimen/detail_text_size" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout >

@@ -6,38 +6,42 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.wingoku.moviescatalogue.data.network.utils.Resource;
 import com.wingoku.moviescatalogue.domain.interfaces.MoviesRepo;
-import com.wingoku.moviescatalogue.domain.models.MovieOffer;
+import com.wingoku.moviescatalogue.domain.models.MovieDetails;
+import com.wingoku.moviescatalogue.domain.models.MovieDetails;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.hilt.EntryPoint;
 import dagger.hilt.android.AndroidEntryPoint;
+import dagger.hilt.android.lifecycle.HiltViewModel;
 
-@AndroidEntryPoint
-public class SharedViewModel extends AndroidViewModel {
-    @Inject
+@HiltViewModel
+public class SharedViewModel extends ViewModel {
+//    @Inject
     MoviesRepo repo;
 
-    private MediatorLiveData<Resource<List<MovieOffer>>> movieOffersMediatorLiveData = new MediatorLiveData<>();
+    private MediatorLiveData<Resource<List<MovieDetails>>> movieOffersMediatorLiveData = new MediatorLiveData<>();
 
-    public SharedViewModel(@NonNull Application application) {
-        super(application);
+    @Inject
+    public SharedViewModel(MoviesRepo repo) {
+        this.repo = repo;
     }
 
-    public void setCategoryData(Resource<List<MovieOffer>> catData) {
-
+    public void setCategoryData(Resource<List<MovieDetails>> catData) {
         movieOffersMediatorLiveData.setValue(catData);
     }
 
-    public LiveData<Resource<List<MovieOffer>>> getCategoryData() {
+    public LiveData<Resource<List<MovieDetails>>> getCategoryData() {
         return movieOffersMediatorLiveData;
     }
 
-    public LiveData<Resource<List<MovieOffer>>> returnLiveData() {
-        return repo.getMoviesOffers(1);
+    public LiveData<Resource<List<MovieDetails>>> returnLiveData() {
+        return repo.getMoviesDetails(1);
     }
 }

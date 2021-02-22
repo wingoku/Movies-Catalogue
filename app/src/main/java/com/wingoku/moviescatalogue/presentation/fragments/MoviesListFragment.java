@@ -91,6 +91,7 @@ public class MoviesListFragment extends BaseFragment {
         return new OnItemClickListener<MovieItemDetails>() {
             @Override
             public void onItemClick(MovieItemDetails item) {
+                navController.navigate(MoviesListFragmentDirections.actionMoviesListFragmentToMovieItemDetailsFragment(item));
             }
         };
     }

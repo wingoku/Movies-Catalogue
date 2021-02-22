@@ -76,7 +76,33 @@ public class MovieListViewModel extends ViewModel {
     }
 
     private void observeMovieOffersSource(LiveData<Resource<List<MovieOffer>>> movieListLiveData) {
+        mediatorLiveData.addSource(movieListLiveData, new Observer<Resource<List<MovieOffer>>>() {
+            @Override
+            public void onChanged(Resource<List<MovieOffer>> listResource) {
+                switch (listResource.status) {
+                    case LOADING:
+                        mediatorLiveData.postValue(Resource.loading(null));
+                        break;
 
+                    case SUCCESS:
+                        receivedSourceCount++;
+                        mediatorLiveData.removeSource(movieListLiveData);
+                        populateMovieOfferDataInItemDetails(listResource.data);
+
+                        resource2 = Resource.success(null);
+                        break;
+
+                    case ERROR:
+                        receivedSourceCount++;
+                        mediatorLiveData.removeSource(movieListLiveData);
+                        resource2 = Resource.error(listResource.message, null);
+                        Log.e(TAG, "observeMovieDetailsSource :: onChanged: "+ listResource.message);
+                        break;
+                }
+
+                checkIfAllDataReceived();
+            }
+        });
     }
 
     public LiveData<Resource<List<MovieItemDetails>>> getMovieItemsDetails() {

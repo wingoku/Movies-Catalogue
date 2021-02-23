@@ -31,26 +31,29 @@ public class FakeMoviesRepo implements MoviesRepo {
                 new MovieDetails(2, "Wolf Of Wall Street", "Them Stonks"),
                 new MovieDetails(3, "South Park", "Comedy Series")
         );
+
+        movieOfferLiveData = new MutableLiveData<>();
+        movieDetailsLiveData = new MutableLiveData<>();
     }
 
     public void insertDummyMovieDetails_success() {
         Resource<List<MovieDetails>> resource = Resource.success(movieDetails);
-        movieDetailsLiveData.setValue(resource);
+        movieDetailsLiveData.postValue(resource);
     }
 
     public void insertDummyMovieOffers_success() {
         Resource<List<MovieOffer>> resource = Resource.success(movieOffers);
-        movieOfferLiveData.setValue(resource);
+        movieOfferLiveData.postValue(resource);
     }
 
     public void insertDummyMovieDetails_error() {
         Resource<List<MovieDetails>> resource = Resource.error("Some Error", new ArrayList<>());
-        movieDetailsLiveData.setValue(resource);
+        movieDetailsLiveData.postValue(resource);
     }
 
     public void insertDummyMovieOffers_error() {
         Resource<List<MovieOffer>> resource = Resource.error("Some Error", new ArrayList<>());
-        movieOfferLiveData.setValue(resource);
+        movieOfferLiveData.postValue(resource);
     }
 
     @Override

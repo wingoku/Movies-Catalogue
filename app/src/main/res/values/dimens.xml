@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="splash_screen_text_size">20sp</dimen>
+    <dimen name="card_margin">9dp</dimen>
+    <dimen name="card_view_radius">3dp</dimen>
+    <dimen name="card_view_elevation">3dp</dimen>
+    <dimen name="card_view_padding">6dp</dimen>
+    <dimen name="card_view_image_dimen">50dp</dimen>
+    <dimen name="card_title_padding">10dp</dimen>
+    <dimen name="card_view_title_text_view_dimen">15sp</dimen>
+    <dimen name="card_view_detail_margin_start_dimen">10dp</dimen>
+    <dimen name="card_view_detail_text_view_margin_top_dimen">4dp</dimen>
+    <dimen name="card_view_detail_text_view_dimen">12sp</dimen>
+    <dimen name="card_title_padding_top">6dp</dimen>
+
+
+    <dimen name="detail_text_size">15sp</dimen>
+    <dimen name="detail_image_view_dimen">50dp</dimen>
+
+    <dimen name="detail_cell_height">70dp</dimen>
+    <dimen name="description_cell_height">90dp</dimen>
+    <dimen name="detail_title_text_size">11sp</dimen>
+    <dimen name="margin_left_detail_title_text_view">15dp</dimen>
+    <dimen name="detail_list_cell_margin_top">13dp</dimen>
+    <dimen name="app_bar_layout_height_dimen">150dp</dimen>
+</resources>

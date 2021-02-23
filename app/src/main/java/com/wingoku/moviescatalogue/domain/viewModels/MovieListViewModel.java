@@ -59,13 +59,13 @@ public class MovieListViewModel extends ViewModel {
                         mediatorLiveData.removeSource(movieDetailsLiveData);
                         populateMovieDetailsDataInItemDetails(listResource.data);
 
-                        resource2 = Resource.success(null);
+                        resource1 = Resource.success(null);
                         break;
 
                     case ERROR:
                         receivedSourceCount++;
                         mediatorLiveData.removeSource(movieDetailsLiveData);
-                        resource2 = Resource.error(listResource.message, null);
+                        resource1 = Resource.error(listResource.message, null);
                         Log.e(TAG, "observeMovieDetailsSource :: onChanged: "+ listResource.message);
                         break;
                 }

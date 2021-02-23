@@ -12,7 +12,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.Observer;
 
-
 import com.wingoku.moviescatalogue.data.network.models.responses.ApiResponse;
 
 import io.reactivex.Single;

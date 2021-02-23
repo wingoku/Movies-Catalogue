@@ -21,8 +21,6 @@ import com.wingoku.moviescatalogue.domain.models.MovieOffer;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 public class MoviesRepoImpl implements MoviesRepo {
     private static final String TAG = "MoviesRepoImpl";
     private MoviesApi moviesApi;

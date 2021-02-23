@@ -1,9 +1,5 @@
 package com.wingoku.moviescatalogue.domain.viewModels;
 
-import android.app.Application;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.ViewModel;
@@ -11,14 +7,11 @@ import androidx.lifecycle.ViewModel;
 import com.wingoku.moviescatalogue.data.network.utils.Resource;
 import com.wingoku.moviescatalogue.domain.interfaces.MoviesRepo;
 import com.wingoku.moviescatalogue.domain.models.MovieDetails;
-import com.wingoku.moviescatalogue.domain.models.MovieDetails;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-import dagger.hilt.EntryPoint;
-import dagger.hilt.android.AndroidEntryPoint;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel

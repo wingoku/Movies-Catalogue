@@ -1,5 +1,9 @@
 package com.wingoku.moviescatalogue.presentation.activities;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
@@ -7,14 +11,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ProgressBar;
-
 import com.wingoku.moviescatalogue.R;
-import com.wingoku.moviescatalogue.data.network.interfaces.MoviesApi;
-
-import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 

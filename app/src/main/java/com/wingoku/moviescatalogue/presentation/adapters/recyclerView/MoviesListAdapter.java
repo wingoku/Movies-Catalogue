@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.wingoku.moviescatalogue.R;
 import com.wingoku.moviescatalogue.domain.models.MovieItemDetails;
-import com.wingoku.moviescatalogue.domain.models.MovieItemDetails;
 import com.wingoku.moviescatalogue.presentation.interfaces.OnItemClickListener;
 
 public class MoviesListAdapter extends ListAdapter<MovieItemDetails, MoviesListAdapter.MoviesListRecyclerViewHolder> {
